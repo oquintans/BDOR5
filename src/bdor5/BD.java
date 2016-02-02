@@ -86,9 +86,9 @@ public class BD {
 
     public void deleteLinea() {
         try {
-            PreparedStatement ps = conn.prepareStatement("delete from pedido_tab where ordnum=");
-           
-
+            PreparedStatement ps = conn.prepareStatement("delete from the(select pedido from pedido_tab where ordnum=?) where linum=?");
+            ps.setInt(1, 4001);
+            ps.setInt(2, 48);
             rs = (ResultSet) ps.executeQuery();
         } catch (SQLException ex) {
             Logger.getLogger(BD.class.getName()).log(Level.SEVERE, null, ex);
